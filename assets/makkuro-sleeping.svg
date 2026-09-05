@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .snore { transform-origin: 7.5px 15.5px; animation: snore 4s ease-in-out infinite; }
+    @keyframes snore { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.03,0.95); } }
+    .zzz { opacity: 0; animation: zzz 3.6s ease-in-out infinite; }
+    @keyframes zzz { 0% { opacity: 0; transform: translateY(1.5px); } 30% { opacity: 1; } 70% { opacity: 0.8; } 100% { opacity: 0; transform: translateY(-2.5px); } }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="6" ry="1" fill="#000" opacity="0.13"/></g>
+  <g class="snore">
+    <ellipse cx="7.5" cy="10.0" rx="8.0" ry="5.4" fill="#101010"/>
+    <g transform="translate(0 4.2)"><path d="M3.7 5.8 Q5.4 7.3 7.1 5.8" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/><path d="M7.9 5.8 Q9.6 7.3 11.3 5.8" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/></g>
+  </g>
+  <g class="zzz-wrap"><text x="16.2" y="2" font-family="Helvetica, Arial, sans-serif" font-size="3.4" font-weight="700" fill="#101010" class="zzz" style="animation-delay:0s">z</text><text x="18.8" y="-0.8" font-family="Helvetica, Arial, sans-serif" font-size="4.42" font-weight="700" fill="#101010" class="zzz" style="animation-delay:0.6s">z</text><text x="22" y="-3.6" font-family="Helvetica, Arial, sans-serif" font-size="5.44" font-weight="700" fill="#101010" class="zzz" style="animation-delay:1.2s">z</text></g>
+</svg>

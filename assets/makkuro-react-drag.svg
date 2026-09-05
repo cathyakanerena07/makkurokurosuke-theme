@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .breathe { transform-origin: 7.5px 14.5px; animation: breathe 3.4s ease-in-out infinite; }
+    @keyframes breathe { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.02,0.98); } }
+    .dangle { transform-origin: 7.5px -2px; animation: dangle 1.1s ease-in-out infinite; }
+    @keyframes dangle { 0%,100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="4" ry="1" fill="#000" opacity="0.1"/></g>
+  <g class="dangle">
+    <g class="breathe">
+      <circle cx="7.5" cy="6.5" r="8" fill="#101010"/>
+      <g transform="rotate(14 5.2 5.4)"><rect x="4.25" y="4.54" width="1.9" height="1.71" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 9.8 5.4)"><rect x="8.85" y="4.54" width="1.9" height="1.71" rx="0.95" fill="#ffffff"/></g>
+    </g>
+  </g>
+</svg>

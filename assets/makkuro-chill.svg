@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .breathe { transform-origin: 7.5px 14.5px; animation: breathe 3.4s ease-in-out infinite; }
+    @keyframes breathe { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.02,0.98); } }
+    .bob { transform-origin: 17.4px 13px; animation: bob 3.4s ease-in-out infinite; }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-0.5px); } }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.6" ry="1" fill="#000" opacity="0.16"/></g>
+  <g class="breathe">
+    <circle cx="7.5" cy="6.5" r="8" fill="#101010"/>
+    <g>
+      <rect x="3.55" y="4.35" width="3.3" height="2.9" rx="0.75" fill="#101010" stroke="#ffffff" stroke-width="0.45"/>
+      <rect x="8.15" y="4.35" width="3.3" height="2.9" rx="0.75" fill="#101010" stroke="#ffffff" stroke-width="0.45"/>
+      <path d="M6.85 5.05 H8.15" stroke="#ffffff" stroke-width="0.45"/>
+      <path d="M3.55 4.7 L2.1 4.3" stroke="#ffffff" stroke-width="0.45" stroke-linecap="round"/>
+      <path d="M11.45 4.7 L12.9 4.3" stroke="#ffffff" stroke-width="0.45" stroke-linecap="round"/>
+    </g>
+  </g>
+  <g transform="translate(17.4 10.5)" class="bob">
+    <path d="M-1.7 -2.6 L1.7 -2.6 L1.25 2.6 L-1.25 2.6 Z" fill="#ffffff" stroke="#101010" stroke-width="0.5"/>
+    <path d="M-1.75 -2.6 H1.75" stroke="#101010" stroke-width="0.55" stroke-linecap="round"/>
+    <path d="M0.7 -2.8 L2.2 -6.2" stroke="#101010" stroke-width="0.5" stroke-linecap="round"/>
+  </g>
+</svg>

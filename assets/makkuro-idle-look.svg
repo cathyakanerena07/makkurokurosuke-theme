@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .breathe { transform-origin: 7.5px 14.5px; animation: breathe 3.4s ease-in-out infinite; }
+    @keyframes breathe { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.02,0.98); } }
+    .blink { transform-origin: 7.5px 5.8px; animation: blink 4.2s infinite; }
+    @keyframes blink {
+      0%, 40%, 100% { transform: scaleY(1); }
+      43% { transform: scaleY(0.06); }
+      46% { transform: scaleY(1); }
+      52% { transform: scaleY(1); }
+      55% { transform: scaleY(0.06); }
+      58% { transform: scaleY(1); }
+    }
+    .wander { transform-origin: 7.5px 5.8px; animation: wander 12s ease-in-out infinite; }
+    @keyframes wander {
+      0%, 8%    { transform: translate(0, 0); }
+      18%, 30%  { transform: translate(-1.7px, 0.7px); }
+      40%, 50%  { transform: translate(1.8px, -0.5px); }
+      60%, 70%  { transform: translate(0.4px, 0.9px); }
+      80%, 90%  { transform: translate(-1.2px, -0.8px); }
+      100%      { transform: translate(0, 0); }
+    }
+    .eye-l, .eye-r { animation-duration: 12s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+    .eye-l { animation-name: eye-l; }
+    .eye-r { animation-name: eye-r; }
+    @keyframes eye-l {
+      0%, 8% { x: 4.45px; y: 3.9px; width: 1.9px; height: 3.8px; rx: 0.95px; }
+      18%, 30% { x: 4.7px; y: 4.39px; width: 1.41px; height: 2.81px; rx: 0.7px; }
+      40%, 50% { x: 4.36px; y: 3.71px; width: 2.09px; height: 4.18px; rx: 1.04px; }
+      60%, 70% { x: 3.75px; y: 4.15px; width: 3.3px; height: 3.3px; rx: 1.65px; }
+      80%, 90% { x: 4.59px; y: 4.18px; width: 1.61px; height: 3.23px; rx: 0.81px; }
+      100% { x: 4.45px; y: 3.9px; width: 1.9px; height: 3.8px; rx: 0.95px; }
+    }
+    @keyframes eye-r {
+      0%, 8% { x: 8.65px; y: 3.9px; width: 1.9px; height: 3.8px; rx: 0.95px; }
+      18%, 30% { x: 8.55px; y: 3.71px; width: 2.09px; height: 4.18px; rx: 1.04px; }
+      40%, 50% { x: 8.9px; y: 4.39px; width: 1.41px; height: 2.81px; rx: 0.7px; }
+      60%, 70% { x: 7.95px; y: 4.15px; width: 3.3px; height: 3.3px; rx: 1.65px; }
+      80%, 90% { x: 8.57px; y: 3.75px; width: 2.05px; height: 4.1px; rx: 1.03px; }
+      100% { x: 8.65px; y: 3.9px; width: 1.9px; height: 3.8px; rx: 0.95px; }
+    }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.6" ry="1" fill="#000" opacity="0.16"/></g>
+  <g class="breathe">
+    <circle cx="7.5" cy="6.5" r="8" fill="#101010"/>
+    <g class="wander"><g class="blink"><g transform="rotate(14 5.4 5.8)"><rect class="eye-l" x="4.45" y="3.9" width="1.9" height="3.8" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 9.6 5.8)"><rect class="eye-r" x="8.65" y="3.9" width="1.9" height="3.8" rx="0.95" fill="#ffffff"/></g></g></g>
+  </g>
+</svg>

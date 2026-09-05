@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .breathe { transform-origin: 7.5px 14.5px; animation: breathe 3.4s ease-in-out infinite; }
+    @keyframes breathe { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.02,0.98); } }
+    .blink { transform-origin: 7.5px 5.8px; animation: blink 4.2s infinite; }
+    @keyframes blink {
+      0%, 40%, 100% { transform: scaleY(1); }
+      43% { transform: scaleY(0.06); }
+      46% { transform: scaleY(1); }
+      52% { transform: scaleY(1); }
+      55% { transform: scaleY(0.06); }
+      58% { transform: scaleY(1); }
+    }
+    .lean { transform-origin: 7.5px 14.5px; animation: lean 0.9s ease-in-out infinite; }
+    @keyframes lean { 0%,100% { transform: rotate(2deg) translateY(0); } 50% { transform: rotate(4deg) translateY(-0.35px); } }
+    .clack { transform-origin: 18.6px 13px; animation: clack 0.42s ease-in-out infinite; }
+    @keyframes clack { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-0.3px); } }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.2" ry="1" fill="#000" opacity="0.16"/></g>
+  <g class="lean">
+    <g class="breathe">
+      <circle cx="7.5" cy="6.5" r="8" fill="#101010"/>
+      <g class="blink"><g transform="rotate(14 5.85 6.5)"><rect x="4.9" y="5.36" width="1.9" height="2.28" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 10.05 6.5)"><rect x="9.1" y="5.36" width="1.9" height="2.28" rx="0.95" fill="#ffffff"/></g></g>
+    </g>
+  </g>
+  <g class="clack"><g transform="translate(18.6 11.6)"><path d="M-4.6 0 L4.6 0 L5.6 1.5 L-5.6 1.5 Z" fill="#101010"/><rect x="-4.2" y="-5.4" width="8.4" height="5.4" rx="0.5" fill="#101010"/><rect x="-3.5" y="-4.8" width="7" height="4.2" rx="0.3" fill="#ffffff" opacity="0.92"/><g stroke="#101010" stroke-width="0.42" stroke-linecap="round" opacity="0.75"><path d="M-2.7 -3.9 H1.2"/><path d="M-2.7 -2.9 H2.3"/><path d="M-2.7 -1.9 H0.2"/></g></g></g>
+</svg>

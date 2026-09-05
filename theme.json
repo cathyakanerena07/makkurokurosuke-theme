@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "name": "まっくろくろすけ",
+  "author": "akane",
+  "version": "1.0.0",
+  "description": "A soot-sprite desk pet — hand-drawn SVG, fully animated",
+  "viewBox": {
+    "x": -15,
+    "y": -25,
+    "width": 45,
+    "height": 45
+  },
+  "layout": {
+    "contentBox": {
+      "x": -1,
+      "y": -2,
+      "width": 17,
+      "height": 18
+    },
+    "marginBox": {
+      "x": -5,
+      "y": -6,
+      "width": 25,
+      "height": 23
+    },
+    "centerX": 7.5,
+    "baselineY": 15.5,
+    "visibleHeightRatio": 0.4,
+    "baselineBottomRatio": 0.05
+  },
+  "eyeTracking": {
+    "enabled": true,
+    "states": [
+      "idle"
+    ],
+    "eyeRatioX": 0.489,
+    "eyeRatioY": 0.62,
+    "maxOffset": 1.8,
+    "bodyScale": 0.33,
+    "shadowStretch": 0.15,
+    "shadowShift": 0.3,
+    "ids": {
+      "eyes": "eyes-js",
+      "body": "body-js",
+      "shadow": "shadow-js"
+    },
+    "shadowOrigin": "7.5px 15px"
+  },
+  "states": {
+    "idle": [
+      "makkuro-idle-follow.svg"
+    ],
+    "thinking": [
+      "makkuro-thinking.svg"
+    ],
+    "working": [
+      "makkuro-working-typing.svg"
+    ],
+    "juggling": [
+      "makkuro-working-juggling.svg"
+    ],
+    "error": [
+      "makkuro-error.svg"
+    ],
+    "attention": [
+      "makkuro-happy.svg"
+    ],
+    "notification": [
+      "makkuro-notification.svg"
+    ],
+    "sweeping": {
+      "fallbackTo": "working"
+    },
+    "carrying": {
+      "fallbackTo": "working"
+    },
+    "sleeping": [
+      "makkuro-sleeping.svg"
+    ],
+    "waking": [
+      "makkuro-idle-look.svg"
+    ]
+  },
+  "sleepSequence": {
+    "mode": "direct"
+  },
+  "workingTiers": [
+    {
+      "minSessions": 3,
+      "file": "makkuro-working-building.svg"
+    },
+    {
+      "minSessions": 2,
+      "file": "makkuro-working-juggling.svg"
+    },
+    {
+      "minSessions": 1,
+      "file": "makkuro-working-typing.svg"
+    }
+  ],
+  "jugglingTiers": [
+    {
+      "minSessions": 2,
+      "file": "makkuro-working-conducting.svg"
+    },
+    {
+      "minSessions": 1,
+      "file": "makkuro-working-juggling.svg"
+    }
+  ],
+  "idleAnimations": [
+    {
+      "file": "makkuro-idle-look.svg",
+      "duration": 6500
+    },
+    {
+      "file": "makkuro-chill.svg",
+      "duration": 12000
+    }
+  ],
+  "displayHintMap": {
+    "clawd-working-building.svg": "makkuro-working-building.svg",
+    "clawd-working-typing.svg": "makkuro-working-typing.svg",
+    "clawd-working-juggling.svg": "makkuro-working-juggling.svg",
+    "clawd-working-conducting.svg": "makkuro-working-conducting.svg",
+    "clawd-working-thinking.svg": "makkuro-thinking.svg"
+  },
+  "timings": {
+    "minDisplay": {
+      "attention": 4000,
+      "error": 5000,
+      "notification": 2500,
+      "working": 1000,
+      "thinking": 1000
+    },
+    "autoReturn": {
+      "attention": 4000,
+      "error": 5000,
+      "notification": 2500
+    },
+    "deepSleepTimeout": 600000,
+    "mouseIdleTimeout": 20000,
+    "mouseSleepTimeout": 60000
+  },
+  "hitBoxes": {
+    "default": {
+      "x": -1,
+      "y": -2,
+      "w": 17,
+      "h": 18
+    },
+    "sleeping": {
+      "x": -1,
+      "y": 4,
+      "w": 17,
+      "h": 12
+    },
+    "wide": {
+      "x": -4,
+      "y": -5,
+      "w": 23,
+      "h": 21
+    }
+  },
+  "wideHitboxFiles": [
+    "makkuro-error.svg",
+    "makkuro-notification.svg",
+    "makkuro-working-conducting.svg"
+  ],
+  "sleepingHitboxFiles": [
+    "makkuro-sleeping.svg"
+  ],
+  "reactions": {
+    "drag": {
+      "file": "makkuro-react-drag.svg"
+    },
+    "clickLeft": {
+      "file": "makkuro-react-poke.svg",
+      "duration": 2500
+    },
+    "clickRight": {
+      "file": "makkuro-react-poke.svg",
+      "duration": 2500
+    }
+  },
+  "miniMode": {
+    "supported": false
+  },
+  "objectScale": {
+    "widthRatio": 1.9,
+    "heightRatio": 1.3,
+    "offsetX": -0.45,
+    "offsetY": -0.25
+  }
+}

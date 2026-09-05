@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .breathe { transform-origin: 7.5px 14.5px; animation: breathe 3.4s ease-in-out infinite; }
+    @keyframes breathe { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.02,0.98); } }
+    .blink { transform-origin: 7.5px 5.8px; animation: blink 4.2s infinite; }
+    @keyframes blink {
+      0%, 40%, 100% { transform: scaleY(1); }
+      43% { transform: scaleY(0.06); }
+      46% { transform: scaleY(1); }
+      52% { transform: scaleY(1); }
+      55% { transform: scaleY(0.06); }
+      58% { transform: scaleY(1); }
+    }
+    .tilt { transform-origin: 7.5px 14.5px; animation: tilt 3.6s ease-in-out infinite; }
+    @keyframes tilt { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+    .scribble { transform-origin: 7.5px -6px; animation: scribble 2.2s ease-in-out infinite; }
+    @keyframes scribble { 0%,100% { transform: rotate(-4deg) translateY(0); opacity: .85; } 50% { transform: rotate(4deg) translateY(-0.6px); opacity: 1; } }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.6" ry="1" fill="#000" opacity="0.16"/></g>
+  <g class="tilt">
+    <g class="breathe">
+      <circle cx="7.5" cy="6.5" r="8" fill="#101010"/>
+      <g class="blink"><g transform="rotate(14 5.4 5.3)"><rect x="4.45" y="3.68" width="1.9" height="3.23" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 9.6 5.3)"><rect x="8.65" y="3.68" width="1.9" height="3.23" rx="0.95" fill="#ffffff"/></g></g>
+    </g>
+  </g>
+  <g class="scribble" stroke="#101010" stroke-width="0.5" fill="none" stroke-linecap="round">
+    <path d="M1.2 -5.0 c1.6 -2.2 3.6 0.6 1.4 1.6 c-2 0.9 -0.4 3 1.4 1.7"/>
+    <path d="M11.8 -6.3 c2.2 -1.4 3.2 1.8 0.9 2.2 c-2.1 0.4 -1.4 2.6 0.7 2"/>
+    <path d="M6.4 -8.2 c1.8 -1.9 4 0.9 1.7 1.9 c-2.1 0.9 -0.6 2.8 1.2 1.6"/>
+  </g>
+</svg>

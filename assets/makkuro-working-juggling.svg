@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .breathe { transform-origin: 7.5px 14.5px; animation: breathe 3.4s ease-in-out infinite; }
+    @keyframes breathe { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.02,0.98); } }
+    .blink { transform-origin: 7.5px 5.8px; animation: blink 4.2s infinite; }
+    @keyframes blink {
+      0%, 40%, 100% { transform: scaleY(1); }
+      43% { transform: scaleY(0.06); }
+      46% { transform: scaleY(1); }
+      52% { transform: scaleY(1); }
+      55% { transform: scaleY(0.06); }
+      58% { transform: scaleY(1); }
+    }
+    .dance { transform-origin: 7.5px 14.5px; animation: dance 0.9s ease-in-out infinite; }
+    @keyframes dance { 0%,100% { transform: rotate(-6deg) translateY(0); } 50% { transform: rotate(6deg) translateY(-0.9px); } }
+    .float-a { animation: floaty 2.6s ease-in-out infinite; }
+    .float-b { animation: floaty 2.6s ease-in-out infinite 1.3s; }
+    @keyframes floaty { 0% { transform: translateY(1.5px); opacity: 0; } 30%,70% { opacity: 1; } 100% { transform: translateY(-3.5px); opacity: 0; } }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5" ry="1" fill="#000" opacity="0.16"/></g>
+  <g class="dance"><g class="breathe"><circle cx="7.5" cy="6.5" r="8" fill="#101010"/><path d="M3.7 6.7 Q5.4 4.5 7.1 6.7" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/><path d="M7.9 6.7 Q9.6 4.5 11.3 6.7" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/></g></g>
+  <g class="float-a"><g transform="translate(-2.4 -2.6) scale(0.85) rotate(-12)"><ellipse cx="0" cy="0" rx="1.15" ry="0.9" fill="#101010"/><path d="M1.05 0.2 L1.05 -3.6 Q2.6 -3.2 2.9 -1.9" fill="none" stroke="#101010" stroke-width="0.55" stroke-linecap="round"/></g></g>
+  <g class="float-b"><g transform="translate(17 -4.6) scale(0.95) rotate(10)"><ellipse cx="0" cy="0" rx="1.15" ry="0.9" fill="#101010"/><path d="M1.05 0.2 L1.05 -3.6 Q2.6 -3.2 2.9 -1.9" fill="none" stroke="#101010" stroke-width="0.55" stroke-linecap="round"/></g></g>
+</svg>
