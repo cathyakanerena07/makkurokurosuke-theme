@@ -9,7 +9,7 @@
 <g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="4" ry="1" fill="#000" opacity="0.1"/></g>
   <g class="dangle">
     <g class="breathe">
-      <circle cx="7.5" cy="6.5" r="8" fill="#101010"/>
+      <circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/>
       <g transform="rotate(14 5.2 5.4)"><rect x="4.25" y="4.54" width="1.9" height="1.71" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 9.8 5.4)"><rect x="8.85" y="4.54" width="1.9" height="1.71" rx="0.95" fill="#ffffff"/></g>
     </g>
   </g>

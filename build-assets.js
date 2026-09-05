@@ -11,7 +11,8 @@ const path = require("node:path");
 
 const OUT = path.join(__dirname, "assets");
 
-const INK = "#101010";
+const BODY = "#EF6DA3"; // the character itself — swap this one value to recolour
+const INK = "#101010";  // props, outlines and shadows stay dark
 const WHITE = "#ffffff";
 const RED = "#e5484d";
 const GOLD = "#ffcf4a";
@@ -28,7 +29,7 @@ const n = (v) => Number(v.toFixed(2));
 
 // flat solid ball — no gradient, no sheen
 function ball(cx = CX, cy = CY, r = R) {
-  return `<circle cx="${n(cx)}" cy="${n(cy)}" r="${n(r)}" fill="${INK}"/>`;
+  return `<circle cx="${n(cx)}" cy="${n(cy)}" r="${n(r)}" fill="${BODY}"/>`;
 }
 
 function shadow(rx = 5.6, y = GROUND + 1.4, op = 0.16) {
@@ -77,6 +78,15 @@ function eyeFrames(name, cx, poses) {
     })
     .join("\n");
   return `    @keyframes ${name} {\n${body}\n    }`;
+}
+
+// both eyes running the same shape cycle over a given duration
+function eyeAnimFrames(duration, poses) {
+  return `    .eye-l, .eye-r { animation-duration: ${duration}; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+    .eye-l { animation-name: eye-l; }
+    .eye-r { animation-name: eye-r; }
+${eyeFrames("eye-l", EYE_L, poses)}
+${eyeFrames("eye-r", EYE_R, poses)}`;
 }
 
 // closed / sleepy — arcs curving down
@@ -131,6 +141,33 @@ function laptop(x, y) {
   return `<g transform="translate(${n(x)} ${n(y)})"><path d="M-4.6 0 L4.6 0 L5.6 1.5 L-5.6 1.5 Z" fill="${INK}"/><rect x="-4.2" y="-5.4" width="8.4" height="5.4" rx="0.5" fill="${INK}"/><rect x="-3.5" y="-4.8" width="7" height="4.2" rx="0.3" fill="${WHITE}" opacity="0.92"/><g stroke="${INK}" stroke-width="0.42" stroke-linecap="round" opacity="0.75"><path d="M-2.7 -3.9 H1.2"/><path d="M-2.7 -2.9 H2.3"/><path d="M-2.7 -1.9 H0.2"/></g></g>`;
 }
 
+// a proper thought bubble — overlapping puffs with three dots ticking inside,
+// which reads as "thinking" far better than loose squiggles did
+function thoughtBubble() {
+  const puffs = [
+    [18.0, -5.6, 3.3],
+    [14.6, -3.9, 2.3],
+    [21.2, -3.8, 2.4],
+    [19.4, -7.9, 2.2],
+  ]
+    .map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${WHITE}" stroke="${INK}" stroke-width="0.5"/>`)
+    .join("");
+  // redrawn without strokes on top, so the outline reads as one silhouette
+  const fills = [
+    [18.0, -5.6, 3.05],
+    [14.6, -3.9, 2.05],
+    [21.2, -3.8, 2.15],
+    [19.4, -7.9, 1.95],
+  ]
+    .map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${WHITE}"/>`)
+    .join("");
+  const dots = [16.4, 18.2, 20.0]
+    .map((x, i) => `<circle class="dot${i ? ` dot-${i + 1}` : ""}" cx="${x}" cy="-5.2" r="0.62" fill="${INK}"/>`)
+    .join("");
+  const tail = `<circle class="tail-a" cx="12.6" cy="0.6" r="1.15" fill="${WHITE}" stroke="${INK}" stroke-width="0.5"/><circle class="tail-b" cx="11.2" cy="3.0" r="0.75" fill="${WHITE}" stroke="${INK}" stroke-width="0.5"/>`;
+  return `${tail}<g class="puff">${puffs}${fills}${dots}</g>`;
+}
+
 function zzz(x, y) {
   const z = (dx, dy, s, delay) =>
     `<text x="${n(x + dx)}" y="${n(y + dy)}" font-family="Helvetica, Arial, sans-serif" font-size="${n(3.4 * s)}" font-weight="700" fill="${INK}" class="zzz" style="animation-delay:${delay}s">z</text>`;
@@ -166,21 +203,12 @@ const BLINK = `    .blink { transform-origin: ${CX}px ${EYE_Y}px; animation: bli
 
 // Standing still: slits by default, dropping into round eyes now and then and
 // narrowing to a squint in between.
-const IDLE_SHAPE = `    .eye-l, .eye-r { animation-duration: 15s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
-    .eye-l { animation-name: eye-l; }
-    .eye-r { animation-name: eye-r; }
-${eyeFrames("eye-l", EYE_L, [
+const IDLE_SHAPE = eyeAnimFrames("15s", [
   { at: "0%, 36%" },
   { at: "44%, 56%", round: true },
   { at: "64%, 72%", squint: 0.55 },
   { at: "80%, 100%" },
-])}
-${eyeFrames("eye-r", EYE_R, [
-  { at: "0%, 36%" },
-  { at: "44%, 56%", round: true },
-  { at: "64%, 72%", squint: 0.55 },
-  { at: "80%, 100%" },
-])}`;
+]);
 
 // Looking around: the pair glides across the face and pauses on each pose, and
 // the two eyes scale against each other so the one heading around the curve
@@ -258,11 +286,11 @@ files["makkuro-chill.svg"] = svg(
   <g class="breathe">
     ${ball()}
     <g>
-      <rect x="${n(EYE_L - 1.85)}" y="${n(EYE_Y - 1.45)}" width="3.3" height="2.9" rx="0.75" fill="${INK}" stroke="${WHITE}" stroke-width="0.45"/>
-      <rect x="${n(EYE_R - 1.45)}" y="${n(EYE_Y - 1.45)}" width="3.3" height="2.9" rx="0.75" fill="${INK}" stroke="${WHITE}" stroke-width="0.45"/>
-      <path d="M${n(EYE_L + 1.45)} ${n(EYE_Y - 0.75)} H${n(EYE_R - 1.45)}" stroke="${WHITE}" stroke-width="0.45"/>
-      <path d="M${n(EYE_L - 1.85)} ${n(EYE_Y - 1.1)} L${n(EYE_L - 3.3)} ${n(EYE_Y - 1.5)}" stroke="${WHITE}" stroke-width="0.45" stroke-linecap="round"/>
-      <path d="M${n(EYE_R + 1.85)} ${n(EYE_Y - 1.1)} L${n(EYE_R + 3.3)} ${n(EYE_Y - 1.5)}" stroke="${WHITE}" stroke-width="0.45" stroke-linecap="round"/>
+      <rect x="${n(EYE_L - 1.85)}" y="${n(EYE_Y - 1.45)}" width="3.3" height="2.9" rx="0.75" fill="${INK}"/>
+      <rect x="${n(EYE_R - 1.45)}" y="${n(EYE_Y - 1.45)}" width="3.3" height="2.9" rx="0.75" fill="${INK}"/>
+      <path d="M${n(EYE_L + 1.45)} ${n(EYE_Y - 0.75)} H${n(EYE_R - 1.45)}" stroke="${INK}" stroke-width="0.5"/>
+      <path d="M${n(EYE_L - 1.85)} ${n(EYE_Y - 1.1)} L${n(EYE_L - 3.3)} ${n(EYE_Y - 1.5)}" stroke="${INK}" stroke-width="0.45" stroke-linecap="round"/>
+      <path d="M${n(EYE_R + 1.85)} ${n(EYE_Y - 1.1)} L${n(EYE_R + 3.3)} ${n(EYE_Y - 1.5)}" stroke="${INK}" stroke-width="0.45" stroke-linecap="round"/>
     </g>
   </g>
   <g transform="translate(17.4 10.5)" class="bob">
@@ -284,17 +312,20 @@ files["makkuro-thinking.svg"] = svg(
       <g class="blink">${eyesOpen({ dy: -0.5, squint: 0.85 })}</g>
     </g>
   </g>
-  <g class="scribble" stroke="${INK}" stroke-width="0.5" fill="none" stroke-linecap="round">
-    <path d="M1.2 -5.0 c1.6 -2.2 3.6 0.6 1.4 1.6 c-2 0.9 -0.4 3 1.4 1.7"/>
-    <path d="M11.8 -6.3 c2.2 -1.4 3.2 1.8 0.9 2.2 c-2.1 0.4 -1.4 2.6 0.7 2"/>
-    <path d="M6.4 -8.2 c1.8 -1.9 4 0.9 1.7 1.9 c-2.1 0.9 -0.6 2.8 1.2 1.6"/>
-  </g>`,
+  ${thoughtBubble()}`,
   `${BREATHE}
 ${BLINK}
     .tilt { transform-origin: ${CX}px ${GROUND}px; animation: tilt 3.6s ease-in-out infinite; }
     @keyframes tilt { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-    .scribble { transform-origin: ${CX}px -6px; animation: scribble 2.2s ease-in-out infinite; }
-    @keyframes scribble { 0%,100% { transform: rotate(-4deg) translateY(0); opacity: .85; } 50% { transform: rotate(4deg) translateY(-0.6px); opacity: 1; } }`
+    .puff { transform-origin: 18px -5px; animation: puff 3s ease-in-out infinite; }
+    @keyframes puff { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-0.5px) scale(1.03); } }
+    .tail-a { animation: tail 3s ease-in-out infinite; }
+    .tail-b { animation: tail 3s ease-in-out infinite 0.25s; }
+    @keyframes tail { 0%,100% { transform: translateY(0); opacity: .75; } 50% { transform: translateY(-0.5px); opacity: 1; } }
+    .dot { animation: dot 1.5s ease-in-out infinite; }
+    .dot-2 { animation-delay: 0.25s; }
+    .dot-3 { animation-delay: 0.5s; }
+    @keyframes dot { 0%,70%,100% { opacity: 0.25; transform: translateY(0); } 35% { opacity: 1; transform: translateY(-0.35px); } }`
 );
 
 // working — parked at the laptop, eyes down on the screen
@@ -428,7 +459,7 @@ files["makkuro-notification.svg"] = svg(
 files["makkuro-sleeping.svg"] = svg(
   `${shadow(6.0, GROUND + 1.4, 0.13)}
   <g class="snore">
-    <ellipse cx="${CX}" cy="10.0" rx="8.0" ry="5.4" fill="${INK}"/>
+    <ellipse cx="${CX}" cy="10.0" rx="8.0" ry="5.4" fill="${BODY}"/>
     <g transform="translate(0 4.2)">${eyesClosed()}</g>
   </g>
   <g class="zzz-wrap">${zzz(16.2, 2.0)}</g>`,
@@ -465,6 +496,126 @@ files["makkuro-react-drag.svg"] = svg(
   `${BREATHE}
     .dangle { transform-origin: ${CX}px -2px; animation: dangle 1.1s ease-in-out infinite; }
     @keyframes dangle { 0%,100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }`
+);
+
+/* ---------- extra idle animations ---------- */
+
+// hop — crouch, launch, land. The shadow shrinks while it is airborne.
+files["makkuro-idle-hop.svg"] = svg(
+  `<g class="hop-shadow">${shadow(5.2)}</g>
+  <g class="hop">
+    ${ball()}
+    <g class="hop-eyes">${eyesOpen()}</g>
+  </g>`,
+  `    .hop { transform-origin: ${CX}px ${GROUND}px; animation: hop 1.8s ease-in-out infinite; }
+    @keyframes hop {
+      0%, 8%, 100% { transform: translateY(0) scale(1, 1); }
+      18%          { transform: translateY(0) scale(1.16, 0.84); }
+      40%          { transform: translateY(-4px) scale(0.9, 1.1); }
+      58%          { transform: translateY(0) scale(1.14, 0.86); }
+      72%          { transform: translateY(0) scale(0.98, 1.02); }
+    }
+    .hop-shadow { transform-origin: ${CX}px ${n(GROUND + 1.4)}px; animation: hop-shadow 1.8s ease-in-out infinite; }
+    @keyframes hop-shadow {
+      0%, 8%, 100% { transform: scale(1); opacity: 1; }
+      40%          { transform: scale(0.62); opacity: 0.45; }
+      58%          { transform: scale(1.12); opacity: 1; }
+    }
+    .hop-eyes { transform-origin: ${CX}px ${EYE_Y}px; animation: hop-eyes 1.8s ease-in-out infinite; }
+    @keyframes hop-eyes {
+      0%, 8%, 100% { transform: translateY(0); }
+      18%          { transform: translateY(0.5px); }
+      40%          { transform: translateY(-0.6px); }
+      58%          { transform: translateY(0.4px); }
+    }`
+);
+
+// stretch — a long yawn-ish stretch tall, then a wide settle
+files["makkuro-idle-stretch.svg"] = svg(
+  `${shadow()}
+  <g class="stretch">
+    ${ball()}
+    <g class="blink">${eyesOpen({ classes: ["eye-l", "eye-r"] })}</g>
+  </g>`,
+  `${BLINK}
+    .stretch { transform-origin: ${CX}px ${GROUND}px; animation: stretch 5s ease-in-out infinite; }
+    @keyframes stretch {
+      0%, 14%, 100% { transform: translateY(0) scale(1, 1); }
+      34%, 44%      { transform: translateY(-1.4px) scale(0.84, 1.2); }
+      62%, 70%      { transform: translateY(0) scale(1.18, 0.84); }
+      84%           { transform: translateY(0) scale(0.98, 1.02); }
+    }
+${eyeAnimFrames("5s", [
+  { at: "0%, 14%" },
+  { at: "34%, 44%", squint: 0.4 },
+  { at: "62%, 70%", round: true },
+  { at: "84%, 100%" },
+])}`
+);
+
+// roll — tips from side to side, head-tilting as it goes
+files["makkuro-idle-roll.svg"] = svg(
+  `${shadow(5.0)}
+  <g class="roll">
+    ${ball()}
+    <g class="blink">${eyesOpen()}</g>
+  </g>`,
+  `${BLINK}
+    .roll { transform-origin: ${CX}px ${GROUND}px; animation: roll 4.2s ease-in-out infinite; }
+    @keyframes roll {
+      0%, 100% { transform: translateX(0) rotate(0deg) scale(1, 1); }
+      22%      { transform: translateX(-2px) rotate(-15deg) scale(1.04, 0.96); }
+      50%      { transform: translateX(0) rotate(0deg) scale(1, 1); }
+      78%      { transform: translateX(2px) rotate(15deg) scale(1.04, 0.96); }
+    }`
+);
+
+/* ---------- extra reactions ---------- */
+
+// double click — a delighted shimmy
+files["makkuro-react-spin.svg"] = svg(
+  `${shadow(5.0)}
+  <g class="shimmy">
+    ${ball()}
+    ${eyesHappy(-0.1)}
+  </g>
+  <g class="spark-a">${sparkle(-2.2, -2.4, 0.8)}</g>
+  <g class="spark-b">${sparkle(17.2, -1.6, 0.8)}</g>`,
+  `    .shimmy { transform-origin: ${CX}px ${GROUND}px; animation: shimmy 0.5s ease-in-out 7; }
+    @keyframes shimmy {
+      0%, 100% { transform: rotate(0deg) translateY(0); }
+      25%      { transform: rotate(-13deg) translateY(-1.4px); }
+      75%      { transform: rotate(13deg) translateY(-1.4px); }
+    }
+    .spark-a { transform-origin: -2.2px -2.4px; animation: twinkle 1s ease-in-out 3; }
+    .spark-b { transform-origin: 17.2px -1.6px; animation: twinkle 1s ease-in-out 3 0.5s; }
+    @keyframes twinkle { 0%,100% { transform: scale(0.3); opacity: 0; } 50% { transform: scale(1); opacity: 1; } }`
+);
+
+// poked too many times — a grumpy shudder
+files["makkuro-react-annoyed.svg"] = svg(
+  `${shadow(5.4)}
+  <g class="huff">
+    ${ball()}
+    ${eyesOpen({ squint: 0.32, spread: 0.15 })}
+  </g>
+  <g class="steam" stroke="${INK}" stroke-width="0.5" fill="none" stroke-linecap="round">
+    <path d="M13.6 -2.4 q1.3 -1.1 0.4 -2.3 q-0.9 -1.2 0.5 -2.2"/>
+    <path d="M16.4 -1.4 q1.2 -1 0.4 -2.1"/>
+  </g>`,
+  `    .huff { transform-origin: ${CX}px ${GROUND}px; animation: huff 0.9s ease-in-out 4; }
+    @keyframes huff {
+      0%, 100% { transform: translateX(0) scale(1, 1); }
+      15%      { transform: translateX(-0.5px) scale(1.06, 0.94); }
+      30%      { transform: translateX(0.5px) scale(0.96, 1.04); }
+      45%      { transform: translateX(-0.3px) scale(1.03, 0.97); }
+    }
+    .steam { animation: steam 1.8s ease-out 2; }
+    @keyframes steam {
+      0%   { opacity: 0; transform: translateY(1px); }
+      35%  { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-2.5px); }
+    }`
 );
 
 /* ---------- write ---------- */

@@ -12,7 +12,7 @@
     @keyframes twinkle { 0%,100% { transform: scale(0.3); opacity: 0; } 50% { transform: scale(1); opacity: 1; } }
   </style></defs>
 <g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.2" ry="1" fill="#000" opacity="0.16"/></g>
-  <g class="hop"><g class="breathe"><circle cx="7.5" cy="6.5" r="8" fill="#101010"/><path d="M3.7 6.6 Q5.4 4.4 7.1 6.6" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/><path d="M7.9 6.6 Q9.6 4.4 11.3 6.6" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/></g></g>
+  <g class="hop"><g class="breathe"><circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/><path d="M3.7 6.6 Q5.4 4.4 7.1 6.6" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/><path d="M7.9 6.6 Q9.6 4.4 11.3 6.6" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/></g></g>
   <g class="bulb">
     <circle cx="7.5" cy="-7.6" r="2.5" fill="#ffcf4a" stroke="#101010" stroke-width="0.5"/>
     <path d="M6.35 -5.3 h2.3 M6.65 -4.4 h1.7" stroke="#101010" stroke-width="0.5" stroke-linecap="round"/>

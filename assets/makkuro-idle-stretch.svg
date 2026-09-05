@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .blink { transform-origin: 7.5px 5.8px; animation: blink 4.2s infinite; }
+    @keyframes blink {
+      0%, 40%, 100% { transform: scaleY(1); }
+      43% { transform: scaleY(0.06); }
+      46% { transform: scaleY(1); }
+      52% { transform: scaleY(1); }
+      55% { transform: scaleY(0.06); }
+      58% { transform: scaleY(1); }
+    }
+    .stretch { transform-origin: 7.5px 14.5px; animation: stretch 5s ease-in-out infinite; }
+    @keyframes stretch {
+      0%, 14%, 100% { transform: translateY(0) scale(1, 1); }
+      34%, 44%      { transform: translateY(-1.4px) scale(0.84, 1.2); }
+      62%, 70%      { transform: translateY(0) scale(1.18, 0.84); }
+      84%           { transform: translateY(0) scale(0.98, 1.02); }
+    }
+    .eye-l, .eye-r { animation-duration: 5s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+    .eye-l { animation-name: eye-l; }
+    .eye-r { animation-name: eye-r; }
+    @keyframes eye-l {
+      0%, 14% { x: 4.45px; y: 3.9px; width: 1.9px; height: 3.8px; rx: 0.95px; }
+      34%, 44% { x: 4.45px; y: 5.04px; width: 1.9px; height: 1.52px; rx: 0.95px; }
+      62%, 70% { x: 3.75px; y: 4.15px; width: 3.3px; height: 3.3px; rx: 1.65px; }
+      84%, 100% { x: 4.45px; y: 3.9px; width: 1.9px; height: 3.8px; rx: 0.95px; }
+    }
+    @keyframes eye-r {
+      0%, 14% { x: 8.65px; y: 3.9px; width: 1.9px; height: 3.8px; rx: 0.95px; }
+      34%, 44% { x: 8.65px; y: 5.04px; width: 1.9px; height: 1.52px; rx: 0.95px; }
+      62%, 70% { x: 7.95px; y: 4.15px; width: 3.3px; height: 3.3px; rx: 1.65px; }
+      84%, 100% { x: 8.65px; y: 3.9px; width: 1.9px; height: 3.8px; rx: 0.95px; }
+    }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.6" ry="1" fill="#000" opacity="0.16"/></g>
+  <g class="stretch">
+    <circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/>
+    <g class="blink"><g transform="rotate(14 5.4 5.8)"><rect class="eye-l" x="4.45" y="3.9" width="1.9" height="3.8" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 9.6 5.8)"><rect class="eye-r" x="8.65" y="3.9" width="1.9" height="3.8" rx="0.95" fill="#ffffff"/></g></g>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .shimmy { transform-origin: 7.5px 14.5px; animation: shimmy 0.5s ease-in-out 7; }
+    @keyframes shimmy {
+      0%, 100% { transform: rotate(0deg) translateY(0); }
+      25%      { transform: rotate(-13deg) translateY(-1.4px); }
+      75%      { transform: rotate(13deg) translateY(-1.4px); }
+    }
+    .spark-a { transform-origin: -2.2px -2.4px; animation: twinkle 1s ease-in-out 3; }
+    .spark-b { transform-origin: 17.2px -1.6px; animation: twinkle 1s ease-in-out 3 0.5s; }
+    @keyframes twinkle { 0%,100% { transform: scale(0.3); opacity: 0; } 50% { transform: scale(1); opacity: 1; } }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5" ry="1" fill="#000" opacity="0.16"/></g>
+  <g class="shimmy">
+    <circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/>
+    <path d="M3.7 6.6 Q5.4 4.4 7.1 6.6" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/><path d="M7.9 6.6 Q9.6 4.4 11.3 6.6" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/>
+  </g>
+  <g class="spark-a"><path d="M0 -1.2 Q0.24 -0.24 1.2 0 Q0.24 0.24 0 1.2 Q-0.24 0.24 -1.2 0 Q-0.24 -0.24 0 -1.2 Z" fill="#101010" transform="translate(-2.2 -2.4)"/></g>
+  <g class="spark-b"><path d="M0 -1.2 Q0.24 -0.24 1.2 0 Q0.24 0.24 0 1.2 Q-0.24 0.24 -1.2 0 Q-0.24 -0.24 0 -1.2 Z" fill="#101010" transform="translate(17.2 -1.6)"/></g>
+</svg>

@@ -9,7 +9,7 @@
     @keyframes bang { 0%,100% { transform: scale(1) translateY(0); } 50% { transform: scale(1.12) translateY(-0.7px); } }
   </style></defs>
 <g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.2" ry="1" fill="#000" opacity="0.16"/></g>
-  <g class="alert"><g class="breathe"><circle cx="7.5" cy="6.5" r="8" fill="#101010"/><g transform="rotate(14 4.9 5.8)"><rect x="3" y="3.9" width="3.79" height="3.79" rx="1.9" fill="#ffffff"/></g><g transform="rotate(14 10.1 5.8)"><rect x="8.2" y="3.9" width="3.79" height="3.79" rx="1.9" fill="#ffffff"/></g></g></g>
+  <g class="alert"><g class="breathe"><circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/><g transform="rotate(14 4.9 5.8)"><rect x="3" y="3.9" width="3.79" height="3.79" rx="1.9" fill="#ffffff"/></g><g transform="rotate(14 10.1 5.8)"><rect x="8.2" y="3.9" width="3.79" height="3.79" rx="1.9" fill="#ffffff"/></g></g></g>
   <g class="bang">
     <path d="M7.5 -10.8 L8.65 -4.8 L6.35 -4.8 Z" fill="#e5484d"/>
     <circle cx="7.5" cy="-3.4" r="1.05" fill="#e5484d"/>

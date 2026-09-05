@@ -2,18 +2,19 @@
 
 A soot-sprite theme for [Clawd on Desk](https://github.com/rullerzhou-afk/clawd-on-desk) — the desktop pet that reacts to your Claude Code sessions in real time.
 
-A flat black ball with two white eyes. No arms, no legs. Everything expressive happens in the eyes.
+A flat pink ball with two white eyes. No arms, no legs. Everything expressive happens in the eyes, the squash and stretch, and the props.
 
 <p>
   <img src="assets/makkuro-idle-follow.svg" width="110" alt="idle">
   <img src="assets/makkuro-working-typing.svg" width="110" alt="working">
-  <img src="assets/makkuro-working-juggling.svg" width="110" alt="juggling">
+  <img src="assets/makkuro-thinking.svg" width="110" alt="thinking">
+  <img src="assets/makkuro-idle-hop.svg" width="110" alt="hop">
   <img src="assets/makkuro-happy.svg" width="110" alt="happy">
   <img src="assets/makkuro-error.svg" width="110" alt="error">
   <img src="assets/makkuro-sleeping.svg" width="110" alt="sleeping">
 </p>
 
-Every asset is hand-written, animated SVG. No sprite sheets, no APNG, no bitmaps — the whole theme is about 60 KB.
+All 19 assets are hand-written, animated SVG. No sprite sheets, no APNG, no bitmaps — the whole theme is well under 100 KB.
 
 ## The eyes
 
@@ -32,16 +33,18 @@ While looking around, the pair also glides across the face and the two eyes scal
 | State | Face |
 |---|---|
 | Idle | slits, drifting; occasionally round or squinting; follows your cursor |
+| Idle (random) | hops with a squashing landing, rolls side to side, stretches tall, or kicks back with sunglasses |
 | Working (1 session) | narrowed eyes, hunched at a laptop |
 | Working (2 / 3+ sessions) | smiling, bouncing, music notes |
 | Subagents | smiling, swaying like a conductor |
-| Thinking | looking up, tangled scribbles overhead |
+| Thinking | looking up, thought bubble with ticking dots |
 | Done / idea | smiling under a lightbulb, sparkles |
 | Notification | round eyes, bouncing `!` |
 | Error | `✕ ✕`, ERROR sign, sweat drop |
 | Sleeping | settled into a puddle, `zzz` |
 | Poke / drag | round-eyed startle / squeezed shut |
-| Chill | sunglasses and a drink (rare idle animation) |
+| Double click | a delighted shimmy with sparkles |
+| Poked too often | a squinting huff with steam |
 
 ## Install
 
@@ -77,6 +80,7 @@ node build-assets.js
 
 | Knob | Default | What it does |
 |---|---|---|
+| `BODY` | `#EF6DA3` | body colour — one value recolours everything |
 | `EYE_W` / `EYE_H` | 1.9 / 3.8 | slit width and height |
 | `EYE_ROUND` | 3.3 | diameter when the eyes pop round |
 | `EYE_DX` | 2.1 | gap between the eyes |

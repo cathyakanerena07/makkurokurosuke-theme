@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .huff { transform-origin: 7.5px 14.5px; animation: huff 0.9s ease-in-out 4; }
+    @keyframes huff {
+      0%, 100% { transform: translateX(0) scale(1, 1); }
+      15%      { transform: translateX(-0.5px) scale(1.06, 0.94); }
+      30%      { transform: translateX(0.5px) scale(0.96, 1.04); }
+      45%      { transform: translateX(-0.3px) scale(1.03, 0.97); }
+    }
+    .steam { animation: steam 1.8s ease-out 2; }
+    @keyframes steam {
+      0%   { opacity: 0; transform: translateY(1px); }
+      35%  { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-2.5px); }
+    }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.4" ry="1" fill="#000" opacity="0.16"/></g>
+  <g class="huff">
+    <circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/>
+    <g transform="rotate(14 5.25 5.8)"><rect x="4.3" y="5.19" width="1.9" height="1.22" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 9.75 5.8)"><rect x="8.8" y="5.19" width="1.9" height="1.22" rx="0.95" fill="#ffffff"/></g>
+  </g>
+  <g class="steam" stroke="#101010" stroke-width="0.5" fill="none" stroke-linecap="round">
+    <path d="M13.6 -2.4 q1.3 -1.1 0.4 -2.3 q-0.9 -1.2 0.5 -2.2"/>
+    <path d="M16.4 -1.4 q1.2 -1 0.4 -2.1"/>
+  </g>
+</svg>

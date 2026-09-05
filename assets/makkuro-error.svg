@@ -10,7 +10,7 @@
   </style></defs>
 <g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.4" ry="1" fill="#000" opacity="0.13"/></g>
   <g class="slump">
-    <circle cx="7.5" cy="6.5" r="8" fill="#101010"/>
+    <circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/>
     <path d="M3.9 4.3 L6.9 7.3 M6.9 4.3 L3.9 7.3" stroke="#ffffff" stroke-width="0.62" stroke-linecap="round"/><path d="M8.1 4.3 L11.1 7.3 M11.1 4.3 L8.1 7.3" stroke="#ffffff" stroke-width="0.62" stroke-linecap="round"/>
   </g>
   <g class="plate">

@@ -7,7 +7,7 @@
     @keyframes pop { 0% { opacity: 0; transform: scale(0.4); } 30% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.15); } }
   </style></defs>
 <g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5" ry="1" fill="#000" opacity="0.16"/></g>
-  <g class="startle"><g class="breathe"><circle cx="7.5" cy="6.5" r="8" fill="#101010"/><g transform="rotate(14 4.7 5.8)"><rect x="2.56" y="3.65" width="4.29" height="4.29" rx="2.15" fill="#ffffff"/></g><g transform="rotate(14 10.3 5.8)"><rect x="8.15" y="3.65" width="4.29" height="4.29" rx="2.15" fill="#ffffff"/></g></g></g>
+  <g class="startle"><g class="breathe"><circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/><g transform="rotate(14 4.7 5.8)"><rect x="2.56" y="3.65" width="4.29" height="4.29" rx="2.15" fill="#ffffff"/></g><g transform="rotate(14 10.3 5.8)"><rect x="8.15" y="3.65" width="4.29" height="4.29" rx="2.15" fill="#ffffff"/></g></g></g>
   <g class="pop" stroke="#101010" stroke-width="0.55" stroke-linecap="round">
     <path d="M-1.8 -3.6 l-1.6 -1.4"/>
     <path d="M16.8 -3.6 l1.6 -1.4"/>

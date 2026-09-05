@@ -114,6 +114,18 @@
       "duration": 6500
     },
     {
+      "file": "makkuro-idle-hop.svg",
+      "duration": 5400
+    },
+    {
+      "file": "makkuro-idle-roll.svg",
+      "duration": 8400
+    },
+    {
+      "file": "makkuro-idle-stretch.svg",
+      "duration": 10000
+    },
+    {
       "file": "makkuro-chill.svg",
       "duration": 12000
     }
@@ -181,6 +193,16 @@
     "clickRight": {
       "file": "makkuro-react-poke.svg",
       "duration": 2500
+    },
+    "annoyed": {
+      "file": "makkuro-react-annoyed.svg",
+      "duration": 3600
+    },
+    "double": {
+      "files": [
+        "makkuro-react-spin.svg"
+      ],
+      "duration": 3500
     }
   },
   "miniMode": {

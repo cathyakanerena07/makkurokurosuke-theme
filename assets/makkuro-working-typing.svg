@@ -20,7 +20,7 @@
 <g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.2" ry="1" fill="#000" opacity="0.16"/></g>
   <g class="lean">
     <g class="breathe">
-      <circle cx="7.5" cy="6.5" r="8" fill="#101010"/>
+      <circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/>
       <g class="blink"><g transform="rotate(14 5.85 6.5)"><rect x="4.9" y="5.36" width="1.9" height="2.28" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 10.05 6.5)"><rect x="9.1" y="5.36" width="1.9" height="2.28" rx="0.95" fill="#ffffff"/></g></g>
     </g>
   </g>

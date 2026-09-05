@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .hop { transform-origin: 7.5px 14.5px; animation: hop 1.8s ease-in-out infinite; }
+    @keyframes hop {
+      0%, 8%, 100% { transform: translateY(0) scale(1, 1); }
+      18%          { transform: translateY(0) scale(1.16, 0.84); }
+      40%          { transform: translateY(-4px) scale(0.9, 1.1); }
+      58%          { transform: translateY(0) scale(1.14, 0.86); }
+      72%          { transform: translateY(0) scale(0.98, 1.02); }
+    }
+    .hop-shadow { transform-origin: 7.5px 15.9px; animation: hop-shadow 1.8s ease-in-out infinite; }
+    @keyframes hop-shadow {
+      0%, 8%, 100% { transform: scale(1); opacity: 1; }
+      40%          { transform: scale(0.62); opacity: 0.45; }
+      58%          { transform: scale(1.12); opacity: 1; }
+    }
+    .hop-eyes { transform-origin: 7.5px 5.8px; animation: hop-eyes 1.8s ease-in-out infinite; }
+    @keyframes hop-eyes {
+      0%, 8%, 100% { transform: translateY(0); }
+      18%          { transform: translateY(0.5px); }
+      40%          { transform: translateY(-0.6px); }
+      58%          { transform: translateY(0.4px); }
+    }
+  </style></defs>
+<g class="hop-shadow"><g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5.2" ry="1" fill="#000" opacity="0.16"/></g></g>
+  <g class="hop">
+    <circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/>
+    <g class="hop-eyes"><g transform="rotate(14 5.4 5.8)"><rect x="4.45" y="3.9" width="1.9" height="3.8" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 9.6 5.8)"><rect x="8.65" y="3.9" width="1.9" height="3.8" rx="0.95" fill="#ffffff"/></g></g>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -25 45 45" width="500" height="500">
+  <defs><style>
+    * { transform-box: view-box; }
+    .blink { transform-origin: 7.5px 5.8px; animation: blink 4.2s infinite; }
+    @keyframes blink {
+      0%, 40%, 100% { transform: scaleY(1); }
+      43% { transform: scaleY(0.06); }
+      46% { transform: scaleY(1); }
+      52% { transform: scaleY(1); }
+      55% { transform: scaleY(0.06); }
+      58% { transform: scaleY(1); }
+    }
+    .roll { transform-origin: 7.5px 14.5px; animation: roll 4.2s ease-in-out infinite; }
+    @keyframes roll {
+      0%, 100% { transform: translateX(0) rotate(0deg) scale(1, 1); }
+      22%      { transform: translateX(-2px) rotate(-15deg) scale(1.04, 0.96); }
+      50%      { transform: translateX(0) rotate(0deg) scale(1, 1); }
+      78%      { transform: translateX(2px) rotate(15deg) scale(1.04, 0.96); }
+    }
+  </style></defs>
+<g id="shadow-js"><ellipse cx="7.5" cy="15.9" rx="5" ry="1" fill="#000" opacity="0.16"/></g>
+  <g class="roll">
+    <circle cx="7.5" cy="6.5" r="8" fill="#EF6DA3"/>
+    <g class="blink"><g transform="rotate(14 5.4 5.8)"><rect x="4.45" y="3.9" width="1.9" height="3.8" rx="0.95" fill="#ffffff"/></g><g transform="rotate(14 9.6 5.8)"><rect x="8.65" y="3.9" width="1.9" height="3.8" rx="0.95" fill="#ffffff"/></g></g>
+  </g>
+</svg>
